@@ -3,6 +3,7 @@ require("dotenv").config();
 
 let sequelize;
 
+// sets sequelize instance for heroku or .env options if not in heroku
 if (process.env.JAWSDB_URL) {
     sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
@@ -13,9 +14,10 @@ if (process.env.JAWSDB_URL) {
         {
             host: "localhost",
             dialect: "mysql",
-            port: 3306
+            port: 3306,
         }
     );
 }
 
+// exports the connection
 module.exports = sequelize;

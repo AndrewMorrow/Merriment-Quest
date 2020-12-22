@@ -1,7 +1,8 @@
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes, Sequelize } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
+// call checkpassword to compare hashed passwords
 class User extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
@@ -11,16 +12,17 @@ class User extends Model {
 User.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true,
         },
-        name: {
-            type: DataTypes.STRING,
+        user_name: {
+            type: DataTypes.STRING(25),
+            unique: true,
             allowNull: false,
         },
-        email: {
+        user_email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
@@ -28,7 +30,7 @@ User.init(
                 isEmail: true,
             },
         },
-        password: {
+        user_password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -36,14 +38,21 @@ User.init(
             },
         },
     },
+    // hooks hash the password before it is saved to the database
     {
         hooks: {
             beforeCreate: async (newUserData) => {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                newUserData.password = await bcrypt.hash(
+                    newUserData.password,
+                    10
+                );
                 return newUserData;
             },
             beforeUpdate: async (updatedUserData) => {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                updatedUserData.password = await bcrypt.hash(
+                    updatedUserData.password,
+                    10
+                );
                 return updatedUserData;
             },
         },
