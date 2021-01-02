@@ -1,0 +1,39 @@
+<main class= "container">
+    <section class="jumbotron">
+        <article>
+            <div class="card mb-3">
+                <div>
+                    <h4 class="card-header">Create Account</h4>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="usernameField" class="form-label">Username</label>
+                            <input
+                                class="form-control"
+                                id="new-username"
+                                aria-describedby="Username Field"
+                            />
+                            <div id="usernameHelp" class="form-text">Requirements: 4 - 25 characters</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="passwordField" class="form-label"
+                                >Password</label
+                            >
+                            <input class="form-control" 
+                            type="password" id="new-user-password" />
+                            <div id="passwordHelp" class="form-text">Requirements: minimum 8 characters</div>
+                        </div>
+                        {{!-- when clicked will take them to create user route --}}
+                        <button id="signup-btn" type="submit" class="btn btn-primary mr-3">
+                            Sign Up
+                        </button>
+                        <a href="/login">Login instead</a>
+                    </form>
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+{{> bootstrap-cdn}}
+<script src="/javascripts/signup.js"></script>
