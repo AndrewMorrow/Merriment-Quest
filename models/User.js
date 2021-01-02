@@ -5,7 +5,7 @@ const sequelize = require("../config/connection");
 // call checkpassword to compare hashed passwords
 class User extends Model {
     checkPassword(loginPw) {
-        return bcrypt.compareSync(loginPw, this.password);
+        return bcrypt.compareSync(loginPw, this.user_password);
     }
 }
 
@@ -13,7 +13,7 @@ User.init(
     {
         id: {
             type: DataTypes.UUID,
-            defaultValue: Sequelize,
+            defaultValue: Sequelize.UUIDV4,
             allowNull: false,
             primaryKey: true,
         },
@@ -42,15 +42,15 @@ User.init(
     {
         hooks: {
             beforeCreate: async (newUserData) => {
-                newUserData.password = await bcrypt.hash(
-                    newUserData.password,
+                newUserData.user_password = await bcrypt.hash(
+                    newUserData.user_password,
                     10
                 );
                 return newUserData;
             },
             beforeUpdate: async (updatedUserData) => {
-                updatedUserData.password = await bcrypt.hash(
-                    updatedUserData.password,
+                updatedUserData.user_password = await bcrypt.hash(
+                    updatedUserData.user_password,
                     10
                 );
                 return updatedUserData;
