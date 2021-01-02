@@ -1,6 +1,7 @@
 const $signupBtn = $("#signup-btn");
 const $userName = $("#new-username");
 const $userPassword = $("#new-user-password");
+const $userPasswordCheck = $("#new-user-password-check");
 
 // sends data to create a user in the db
 // const createUser = (credentials) => {
@@ -14,6 +15,9 @@ const $userPassword = $("#new-user-password");
 // gets data to send in ajax call
 const createCredentials = async (e) => {
     e.preventDefault();
+    if ($userPassword.val().trim() !== $userPasswordCheck.val().trim()) {
+        alert("Passwords do not match.");
+    }
     if (
         $userName.val().trim().length >= 4 &&
         $userPassword.val().trim().length
@@ -24,7 +28,7 @@ const createCredentials = async (e) => {
         };
 
         if (credentials.user_name && credentials.user_password) {
-            const response = await fetch("/api/user/create", {
+            const response = await fetch("/api/user/", {
                 method: "POST",
                 body: JSON.stringify(credentials),
                 headers: { "Content-Type": "application/json" },
