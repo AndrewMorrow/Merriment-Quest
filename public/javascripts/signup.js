@@ -1,6 +1,7 @@
 const $signupBtn = $("#signup-btn");
 const $userName = $("#new-username");
 const $userPassword = $("#new-user-password");
+const $userPasswordCheck = $("#new-user-password-check");
 
 // sends data to create a user in the db
 // const createUser = (credentials) => {
@@ -14,6 +15,9 @@ const $userPassword = $("#new-user-password");
 // gets data to send in ajax call
 const createCredentials = async (e) => {
     e.preventDefault();
+    if ($userPassword !== $userPasswordCheck) {
+        alert("Passwords do not match.");
+    }
     if (
         $userName.val().trim().length >= 4 &&
         $userPassword.val().trim().length
