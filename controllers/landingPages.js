@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require(".././models");
+// const { User } = require(".././models");
 const withAuth = require("../utils/auth");
 
 //           Home Page
@@ -19,20 +19,40 @@ router.get("/", async (req, res) => {
 // get all blogs for a specific user
 router.get("/dashboard", withAuth, async (req, res) => {
     try {
-        // get all blogs from db here
-        const dbUserData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ["user_password"] },
-            include: [{ model: Blog }],
-        });
-
-        // console.log(dbBlogData);
-
-        const userData = dbUserData.get({ plain: true });
-        // console.log(blogs);
-        // console.log(userData);
-        // console.log(req.session.loggedIn);
         res.render("dashboard", {
-            ...userData,
+            logged_in: req.session.loggedIn,
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.get("/gamefinder", async (req, res) => {
+    try {
+        res.render("gamefinder", {
+            logged_in: req.session.loggedIn,
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.get("/dealfinder", async (req, res) => {
+    try {
+        res.render("dealfinder", {
+            logged_in: req.session.loggedIn,
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.get("/gameview", async (req, res) => {
+    try {
+        res.render("gameview", {
             logged_in: req.session.loggedIn,
         });
     } catch (err) {
