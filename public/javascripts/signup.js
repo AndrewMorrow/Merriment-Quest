@@ -15,7 +15,7 @@ const $userPasswordCheck = $("#new-user-password-check");
 // gets data to send in ajax call
 const createCredentials = async (e) => {
     e.preventDefault();
-    if ($userPassword !== $userPasswordCheck) {
+    if ($userPassword.val().trim() !== $userPasswordCheck.val().trim()) {
         alert("Passwords do not match.");
     }
     if (
@@ -28,7 +28,7 @@ const createCredentials = async (e) => {
         };
 
         if (credentials.user_name && credentials.user_password) {
-            const response = await fetch("/api/user/create", {
+            const response = await fetch("/api/user/", {
                 method: "POST",
                 body: JSON.stringify(credentials),
                 headers: { "Content-Type": "application/json" },
