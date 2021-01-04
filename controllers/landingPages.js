@@ -30,7 +30,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 router.get("/gamefinder", async (req, res) => {
     try {
-        res.render("gamefinder", {
+        res.render("gameFinder", {
             logged_in: req.session.loggedIn,
         });
     } catch (err) {
@@ -41,7 +41,7 @@ router.get("/gamefinder", async (req, res) => {
 
 router.get("/dealfinder", async (req, res) => {
     try {
-        res.render("dealfinder", {
+        res.render("dealFinder", {
             logged_in: req.session.loggedIn,
         });
     } catch (err) {
