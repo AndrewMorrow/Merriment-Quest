@@ -15,9 +15,7 @@ const randSearchCall = async (e) => {
     if (response.ok) {
         // If successful, redirect the browser to the dashboard page
         // document.location.replace("/gameView");
-        console.log("Call complete");
-        console.log(response);
-        console.log(response.body);
+        console.log("Call Successful");
     } else {
         alert("Please check your credentials and try again.");
     }
