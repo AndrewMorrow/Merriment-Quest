@@ -3,8 +3,7 @@ const router = require("express").Router();
 const withAuth = require("../utils/auth");
 
 //           Home Page
-// Get all blogs from the database
-router.get("/", async (req, res) => {
+router.get("/home", async (req, res) => {
     try {
         res.render("homepage", {
             logged_in: req.session.loggedIn,
