@@ -1,22 +1,82 @@
 <main class= "container">
-    <section class="jumbotron">
-        <!-- place all blog posts here -->
-        <article>
-            <div class="card mb-3">
-                <div class="d-flex card-header justify-content-between">
-                    <h4>Search for a game</h4>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">
-                        Text goes here
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <button class= "btn btn-dark mr-3 rand-search-btn">Find a game</button>
-                </div>
+    <h2>Find Your Next Game</h2>
+    <div class="container">
+        <div class="row" id="genre">
+           <h3>Choose a Genre or Multiple Genres</h3>
+           <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="4" id="action">
+                    <label class="form-check-label" for="action">
+                        Action
+                    </label>
             </div>
-        </article>
-    </section>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="3" id="adventure">
+                    <label class="form-check-label" for="adventure">
+                        Adventure
+                    </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="10" id="strategy">
+                    <label class="form-check-label" for="strategy">
+                        Strategy
+                    </label>
+            </div>
+        </div>
+        <div class="row" id="platforms">
+            <h3>Choose a Platform or Multiple Platforms</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="4" id="pc">
+                    <label class="form-check-label" for="pc">
+                        PC
+                    </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="1" id="xbox">
+                    <label class="form-check-label" for="xbox">
+                        Xbox One
+                    </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="18" id="ps4">
+                    <label class="form-check-label" for="ps4">
+                        Playstation 4
+                    </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="7" id="switch">
+                    <label class="form-check-label" for="switch">
+                        Nintendo Switch
+                    </label>
+            </div>
+        </div>
+        <div class="row" id="tags">
+            <h4>Choose a Tag or Multiple Tags</h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="31" id="single">
+                        <label class="form-check-label" for="single">
+                            Single Player
+                        </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="7" id="multi">
+                        <label class="form-check-label" for="multi">
+                            Multiplayer
+                        </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="8" id="first">
+                        <label class="form-check-label" for="first">
+                            First Person Viewpoint
+                        </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="149" id="third">
+                        <label class="form-check-label" for="third">
+                            Third Person Viewpoint
+                        </label>
+                </div>
+        </div>
+    </div>
 </main>
 {{> bootstrap-cdn}}
 <script src="/javascripts/gameFinder.js"></script>
