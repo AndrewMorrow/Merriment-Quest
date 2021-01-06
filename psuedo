@@ -1,0 +1,10 @@
+// testing rawger npm package
+        // const rawger = await Rawger();
+        // const { games } = rawger;
+        // const apiGames = (
+        //     await games.search(
+        //         "platforms=4,1,3,2&genres=strategy&tags=singleplayer&page_size=1"
+        //     )
+        // ).get();
+        // console.log(apiGames);
+        // res.status(200).json(apiGames);

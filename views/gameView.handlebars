@@ -1,12 +1,47 @@
 <main class ="container">
-<div class="card text-center">
+<div class="card text-center mb-3">
     <div class="card-header">
-        We found a match!
+        <h5>Our closest match!</h5>
     </div>
     <div class="card-body">
-        <h5 class="card-title">{{randomGame.name}}</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Find a deal</a>
+        <h2 class="card-title">{{game.name}}</h2>
+        <p class="card-text">Released: {{game.released}}</p>
+        <div class ="d-flex justify-content-around flex-wrap">
+        {{#each game.short_screenshots}}
+            <img src="{{image}}" width="280" height="180" class="mb-2">
+        {{/each}}
+        </div>
+        <div class="mb-2">
+            <video src={{game.clip.clip}} width="320" height="240" controls></video>
+        </div>
+        
+        
+    </div>
+    <div class="card-footer">
+        <p>Not what you had in mind?</p>
+        <a href="/gameFinder" class="btn btn-primary">Try again</a> 
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5>Deals by Cheapshark!</h5>
+    </div>
+    <div class="card-body">
+        {{#if cheapValue}}
+        {{#each cheapData}}
+        <div class= "border border-4 border-dark mb-3">
+        <h4 class="card-title">{{title}}</h4>
+        <div>
+            <img src="{{thumb}}" width="180" height="100">
+        </div>
+        <p class= "card-text">Sale Price: {{salePrice}} vs. Normal Price: {{normalPrice}} </p>
+        <a href="https://www.cheapshark.com/redirect?dealID={{dealID}}"class="btn btn-dark mb-2">Get Deal Here</a>
+        </div>
+        {{/each}}
+        {{else}}
+        <h5> We are sorry but no deals were found for this title. </h5>
+        {{/if}}
     </div>
     <div class="card-footer">
         <p>Not what you had in mind?</p>
