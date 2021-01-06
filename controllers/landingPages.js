@@ -129,7 +129,7 @@ router.get("/signup", (req, res) => {
 router.get("/cheapsharkSearch", async (req, res) => {
     try {
         let rawgParams = {};
-        let cheapValue;
+        let cheapValue = true;
         // console.log(req.query.title);
         const cheapConfig = {
             url: `/deals?title=${req.query.title}&sortBy=Title&limit=1&storeID=1,2,3,7,11&onSale=1`,
@@ -172,7 +172,7 @@ router.get("/gameDealFinder", async (req, res) => {
     try {
         let rawgParams = {};
         let cheapParams = {};
-        let cheapValue;
+        let cheapValue = true;
 
         if (Object.keys(req.query.platforms).length !== 0) {
             rawgParams.platforms = req.query.platforms;
@@ -212,7 +212,7 @@ router.get("/gameDealFinder", async (req, res) => {
         const apiCheapData = await axios.request(cheapConfig);
         const cheapData = apiCheapData.data;
 
-        console.log(cheapData);
+        // console.log(cheapData);
 
         if (cheapData.length === 0) {
             cheapValue = false;

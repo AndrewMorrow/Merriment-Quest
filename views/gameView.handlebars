@@ -6,9 +6,16 @@
     <div class="card-body">
         <h2 class="card-title">{{game.name}}</h2>
         <p class="card-text">Released: {{game.released}}</p>
+        <h5 class="card-text"> Ratings</h5>
+        <p>Metacritic: {{game.metacritic}}</p>
+        <div class="card-text mr-2 d-flex justify-content-around">
+            {{#each game.ratings}}
+            <h5>{{title}}: {{percent}}%</h5>
+            {{/each}}
+        </div>
         <div class ="d-flex justify-content-around flex-wrap">
         {{#each game.short_screenshots}}
-            <img src="{{image}}" width="280" height="180" class="mb-2">
+            <img src="{{image}}" width="280" height="160" class="mb-2">
         {{/each}}
         </div>
         <div class="mb-2">
@@ -31,18 +38,18 @@
         {{#if cheapValue}}
         {{#each cheapData}}
         <div class= "border border-4 border-dark mb-3">
-        <h4 class="card-title">{{title}}</h4>
+            <h4 class="card-title">{{title}}</h4>
         <div>
-            <img src="{{thumb}}" width="180" height="100">
+            <img src="{{thumb}}" width="110" height="60">
+            <p class= "card-text">Sale Price: {{salePrice}} vs. Normal Price: {{normalPrice}} </p>
+            <a href="https://www.cheapshark.com/redirect?dealID={{dealID}}"class="btn btn-dark mb-2">Get Deal Here</a>
         </div>
-        <p class= "card-text">Sale Price: {{salePrice}} vs. Normal Price: {{normalPrice}} </p>
-        <a href="https://www.cheapshark.com/redirect?dealID={{dealID}}"class="btn btn-dark mb-2">Get Deal Here</a>
         </div>
         {{/each}}
         {{else}}
         <h5> We are sorry but no deals were found for this title. </h5>
         {{/if}}
-    </div>
+    
     <div class="card-footer">
         <p>Not what you had in mind?</p>
         <a href="/gameFinder" class="btn btn-primary">Try again</a>
