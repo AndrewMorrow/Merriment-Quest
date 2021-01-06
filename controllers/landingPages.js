@@ -2,6 +2,7 @@ const router = require("express").Router();
 // const { User } = require(".././models");
 const withAuth = require("../utils/auth");
 const axios = require("axios");
+const _ = require("lodash/core");
 
 //           Home Page
 router.get("/home", async (req, res) => {
@@ -140,7 +141,8 @@ router.get("/cheapsharkSearch", async (req, res) => {
         const cheapData = apiCheapData.data;
         console.log(cheapData);
 
-        if (cheapData.length === 0) {
+        if (_.isEmpty(cheapData)) {
+            console.log("data is empty");
             cheapValue = false;
         }
 
@@ -214,7 +216,7 @@ router.get("/gameDealFinder", async (req, res) => {
 
         // console.log(cheapData);
 
-        if (cheapData.length === 0) {
+        if (_.isEmpty(cheapData.length)) {
             cheapValue = false;
         }
 
