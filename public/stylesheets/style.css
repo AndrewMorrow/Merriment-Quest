@@ -1,0 +1,67 @@
+body {
+    background-color: #515052;
+}
+
+.pageHead {
+    text-align: center;
+    color: #e18ecf;
+    font-family: "Yeon Sung", cursive;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.find-deal-btn {
+    align-items: center;
+}
+
+.card-text {
+    text-align: center;
+}
+
+.btn-group {
+    align-items: center;
+}
+
+.card {
+    background-color: #dcfffd;
+    min-height: 252px;
+}
+
+.navbar-custom {
+    background-color: #dcfffd;
+    color: black;
+}
+
+.subHead {
+    text-align: center;
+    color: #e18ecf;
+}
+
+.loginBtn {
+    align-items: center;
+}
+
+.acntBtns {
+    align-items: center;
+}
+
+.gameCard {
+    float: right;
+}
+
+.form-check {
+    color: white;
+    text-align: center;
+}
+
+.finderHead {
+    text-align: center;
+    color: #e18ecf;
+    font-family: "Yeon Sung", cursive;
+}
+
+.gameSearch {
+    align-items: center;
+}

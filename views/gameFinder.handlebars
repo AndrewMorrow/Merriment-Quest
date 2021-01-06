@@ -1,8 +1,10 @@
 <main class= "container">
-    <h2>Find Your Next Game</h2>
-    <div class="container">
+    <h2 class="pageHead">Find Your Next Game</h2>
+    <div class="container gameSearch">
         <div class="row" id="genre">
-           <h3>Choose a Genre or Multiple Genres</h3>
+           <div class="col">
+           <h4 class="finderHead">Choose a Genre or Multiple Genres</h4>
+           <br>
            <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="4" id="action">
                     <label class="form-check-label" for="action">
@@ -21,9 +23,13 @@
                         Strategy
                     </label>
             </div>
+            </div>
         </div>
+        <hr>
         <div class="row" id="platforms">
-            <h3>Choose a Platform or Multiple Platforms</h3>
+            <div class="col">
+            <h4 class="finderHead">Choose a Platform or Multiple Platforms</h4>
+            <br>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="4" id="pc">
                     <label class="form-check-label" for="pc">
@@ -48,9 +54,13 @@
                         Nintendo Switch
                     </label>
             </div>
+            </div>
         </div>
+        <hr>
         <div class="row" id="tags">
-            <h4>Choose a Tag or Multiple Tags</h4>
+            <div class="col">
+            <h4 class="finderHead">Choose a Tag or Multiple Tags</h4>
+                <br>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="31" id="single">
                         <label class="form-check-label" for="single">
@@ -75,10 +85,11 @@
                             Third Person Viewpoint
                         </label>
                 </div>
+                </div>
         </div>
     </div>
-
-    <button class= "btn btn-dark mr-3 rand-search-btn">Find a game</button>
+    <hr>
+    <center><button class= "btn btn-primary mr-3 rand-search-btn">Find a game</button></center>
 </main>
 {{> bootstrap-cdn}}
 <script src="/javascripts/gameFinder.js"></script>
