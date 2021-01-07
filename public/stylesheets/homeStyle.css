@@ -5,7 +5,8 @@
 ---- */
 
 body {
-    /* background: url() no-repeat center center fixed; */
+    background: url(/images/pexels-johannes-plenio-1165982.jpg) no-repeat center
+        center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -43,10 +44,10 @@ body {
     min-height: 252px;
 }
 
-.navbar-custom {
+/* .navbar-custom {
     background-color: #2d3620;
     color: black;
-}
+} */
 
 a {
     color: #e18ecf;
@@ -84,8 +85,12 @@ a {
     align-items: center;
 }
 
-.watchList {
-    text-align: center;
-    color: #e18ecf;
-    font-family: "Yeon Sung", cursive;
+.optionCard {
+    position: relative;
+}
+
+.cardBtn {
+    position: absolute;
+    left: 75px;
+    bottom: 20px;
 }
