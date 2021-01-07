@@ -5,7 +5,8 @@
 ---- */
 
 body {
-    /* background: url() no-repeat center center fixed; */
+    background: url(/images/pexels-johannes-plenio-1165982.jpg) no-repeat center
+        center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -82,4 +83,14 @@ a {
 
 .gameSearch {
     align-items: center;
+}
+
+.optionCard {
+    position: relative;
+}
+
+.cardBtn {
+    position: absolute;
+    left: 75px;
+    bottom: 20px;
 }

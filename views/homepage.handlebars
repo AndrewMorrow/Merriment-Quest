@@ -1,30 +1,33 @@
+<link rel="stylesheet" href="/stylesheets/homeStyle.css">
 <main class="container">
     <h1 class="pageHead">Welcome to Merriment Quest</h1>
     <div class="row homeCards mb-3">
         <div class="col-md-6">
-            <div class="card gameCard" style="width: 18rem;">
+            <div class="card gameCard optionCard" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Find a Game</h5>
                     <p class="card-text">Looking for a new game? Just answer a few questions and Merriment Quest will help you find your next game!</p>
-                    <center><a href="/gameFinder" class="btn btn-primary">Discover Games</a></center>
+                    <a href="/gameFinder" class="btn btn-dark cardBtn">Discover Games</a>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card dealCard" style="width: 18rem;">
+            <div class="card dealCard optionCard" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Find a Deal</h5>
                     <p class="card-text">Already have a game in mind? Our deal finder powered by Cheapshark will help you find a great price so you can keep looking for more games</p>
-                    <center><a href="/dealFinder" class="btn btn-primary">Discover Deals</a></center>
+                    <a href="/dealFinder" class="btn btn-dark cardBtn">Discover Deals</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row acntBtns">
-        <div class="col">
-            <h4 class="subHead">For the best experience, create an account</h4>
+    <div class=" acntBtns d-flex justify-content-center">
+        <div class=" subHead card" style="width:14rem ">
+            <div class="card-body">
+            <h4 class="card-text">For the best experience, create an account</h4>
             <br>
-            <center><a href="/signup" type="button" class="btn btn-primary">Create Account</a></center>
+                <a href="/signup" type="button" class="btn btn-dark">Create Account</a>
+            </div>
         </div>
     </div>
 </main>
