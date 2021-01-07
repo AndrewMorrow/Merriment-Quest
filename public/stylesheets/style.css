@@ -65,3 +65,9 @@ body {
 .gameSearch {
     align-items: center;
 }
+
+.watchList {
+    text-align: center;
+    color: #e18ecf;
+    font-family: "Yeon Sung", cursive;
+}
