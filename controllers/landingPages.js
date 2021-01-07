@@ -1,5 +1,5 @@
 const router = require("express").Router();
-// const { User } = require(".././models");
+const { User, Watchlist } = require(".././models");
 const withAuth = require("../utils/auth");
 const axios = require("axios");
 const _ = require("lodash/core");
@@ -20,8 +20,22 @@ router.get("/home", async (req, res) => {
 // get all blogs for a specific user
 router.get("/dashboard", withAuth, async (req, res) => {
     try {
+        const dbWatchData = await User.findByPk(req.session.user_id, {
+            attributes: {
+                exclude: ["user_password", "user_id"],
+            },
+            include: [{ model: Watchlist }],
+        });
+
+        // console.log(dbWatchData);
+
+        const watchData = dbWatchData.get({ plain: true });
+
+        console.log(watchData);
+
         res.render("dashboard", {
             logged_in: req.session.loggedIn,
+            watchData,
         });
     } catch (err) {
         console.log(err);
