@@ -1,18 +1,20 @@
 <main>
-    <h1>
-        {{user_name}}'s Dashboard"
+    <h1 class="pageHead">
+        {{watchData.user_name}} Dashboard
     </h1>
     <div class="container">
         <div class="row">
             <div class="col">
                 <h2 class="pageHead">
-                    My Watchlist
+                     Watchlist
                 </h2>
             </div>
         </div>
         <div class="row">
             <div class="col">
-
+                {{#each watchData.watchlists}}
+                <p>{{game_name}}</p>
+                {{/each}}
             </div>
         </div>
     </div>
