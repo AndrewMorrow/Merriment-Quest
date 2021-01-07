@@ -100,46 +100,6 @@ router.get("/signup", (req, res) => {
     res.render("sign-up");
 });
 
-// route: /rawgGameSearch
-// router.get("/rawgGameSearch", async (req, res) => {
-//     try {
-//         let params = {};
-
-//         if (Object.keys(req.query.platforms).length !== 0) {
-//             params.platforms = req.query.platforms;
-//         }
-//         if (Object.keys(req.query.genres).length !== 0) {
-//             params.genres = req.query.genres;
-//         }
-//         if (Object.keys(req.query.tags).length !== 0) {
-//             params.tags = req.query.tags;
-//         }
-
-//         const config = {
-//             url: "games?page_size=20&ordering=-metacritic",
-//             method: "GET",
-//             baseURL: "https://api.rawg.io/api",
-//             params: params,
-//         };
-//         const apiGameData = await axios.request(config);
-//         const apiGamesLen = apiGameData.data.results.length;
-//         const apiGames = apiGameData.data.results;
-//         // console.log(apiGamesLen);
-//         const randNum = function getRandNum(maxNum) {
-//             return Math.floor(Math.random() * Math.floor(maxNum));
-//         };
-//         const randomGame = apiGames[randNum(apiGamesLen)];
-//         // console.log(randomGame);
-//         res.render("gameView", {
-//             logged_in: req.session.loggedIn,
-//             randomGame,
-//         });
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// });
-
 // route: /cheapsharkSearch
 router.get("/cheapsharkSearch", async (req, res) => {
     try {
