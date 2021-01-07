@@ -4,7 +4,7 @@
         <h5>Our closest match!</h5>
     </div>
     <div class="card-body">
-        <h2 class="card-title">{{game.name}}</h2>
+        <h2 class="card-title game-name">{{game.name}}</h2>
         <p class="card-text">Released: {{game.released}}</p>
         <h5 class="card-text"> Ratings</h5>
         <p>Metacritic: {{game.metacritic}}</p>
@@ -20,6 +20,8 @@
         </div>
         <div class="mb-2">
             <video src={{game.clip.clip}} width="320" height="240" controls></video>
+            <p>Add a game to your watchlist to easily check a deal later.</p>
+            <button class= "add-watch-btn"> Add to watchlist </button>
         </div>
         
         
@@ -56,3 +58,5 @@
     </div>
 </div>
 </main>
+{{> bootstrap-cdn}}
+<script src="/javascripts/gameView.js"></script>
