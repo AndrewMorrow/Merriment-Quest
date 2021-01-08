@@ -20,6 +20,7 @@ router.get("/", async (req, res) => {
 // get all blogs for a specific user
 router.get("/dashboard", withAuth, async (req, res) => {
     try {
+        let watchData = true;
         const dbWatchData = await User.findByPk(req.session.user_id, {
             attributes: {
                 exclude: ["user_password", "user_id"],
@@ -27,11 +28,14 @@ router.get("/dashboard", withAuth, async (req, res) => {
             include: [{ model: Watchlist }],
         });
 
-        // console.log(dbWatchData);
+        watchData = await dbWatchData.get({ plain: true });
+        console.log(watchData);
 
-        const watchData = dbWatchData.get({ plain: true });
+        if (_.isEmpty(watchData.watchlists)) {
+            watchData = false;
+        }
 
-        // console.log(watchData);
+        console.log(watchData);
 
         res.render("dashboard", {
             logged_in: req.session.loggedIn,
@@ -214,7 +218,7 @@ router.get("/gameDealFinder", async (req, res) => {
             hasRating = false;
         }
 
-        if (_.isEmpty(game.clip.clip)) {
+        if (_.isEmpty(game.clip)) {
             // console.log("data is empty");
             hasVideo = false;
         }
