@@ -67,6 +67,12 @@ a {
     align-items: center;
 }
 
+<<<<<<< HEAD
+.watchList {
+    text-align: center;
+    color: #e18ecf;
+    font-family: "Yeon Sung", cursive;
+=======
 .card {
     background-color: #313130ef !important;
     color: White;
@@ -74,6 +80,7 @@ a {
 
 .textWhite {
     color: whitesmoke;
+>>>>>>> a08cfd683b745e5c4592e8e3df953ad09e539457
 }
 
 .footer {
