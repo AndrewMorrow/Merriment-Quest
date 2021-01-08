@@ -13,7 +13,6 @@ Watchlist.belongsTo(User, {
 
 User.hasMany(Watchlist, {
     foreignKey: {
-        name: "watchlist_user_id",
         onDelete: "CASCADE",
         type: DataTypes.UUID,
     },
