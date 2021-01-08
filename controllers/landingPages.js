@@ -5,7 +5,7 @@ const axios = require("axios");
 const _ = require("lodash/core");
 
 //           Home Page
-router.get("/home", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         res.render("homepage", {
             logged_in: req.session.loggedIn,
@@ -31,7 +31,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
         const watchData = dbWatchData.get({ plain: true });
 
-        console.log(watchData);
+        // console.log(watchData);
 
         res.render("dashboard", {
             logged_in: req.session.loggedIn,
@@ -93,7 +93,7 @@ router.get("/login", (req, res) => {
 router.get("/signup", (req, res) => {
     // If the user is already logged in, redirect to the homepage
     if (req.session.loggedIn) {
-        res.redirect("/home");
+        res.redirect("/");
         return;
     }
     // Otherwise, render the 'sign-up' template
