@@ -138,23 +138,33 @@ router.get("/cheapsharkSearch", async (req, res) => {
         const game = apiGameData.data.results[0];
         // console.log(game);
 
-        if (_.isEmpty(game.ratings)) {
-            // console.log("data is empty");
-            hasRating = false;
-        }
+        if (game === undefined) {
+            const errMessage = "There was not a game found with that name.";
+            res.render("errGamePage", {
+                errMessage,
+            });
+        } else {
+            if (game.ratings === null) {
+                hasRating = false;
+            }
 
-        if (_.isEmpty(game.clip)) {
-            // console.log("data is empty");
-            hasVideo = false;
+            if (_.isEmpty(game.ratings)) {
+                hasRating = false;
+            }
+
+            if (_.isEmpty(game.clip)) {
+                // console.log("data is empty");
+                hasVideo = false;
+            }
+            res.render("gameView", {
+                logged_in: req.session.loggedIn,
+                game,
+                cheapData,
+                cheapValue,
+                hasVideo,
+                hasRating,
+            });
         }
-        res.render("gameView", {
-            logged_in: req.session.loggedIn,
-            game,
-            cheapData,
-            cheapValue,
-            hasVideo,
-            hasRating,
-        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

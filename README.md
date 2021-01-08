@@ -44,9 +44,9 @@ This program does not utilize any tests.
 
 If there are further questions please contact me with the following.
 
-<img src = "images/githubLogoCrop.png" alt= 'Github Logo' width="15px" height="15px"> AndrewMorrow - <a href="https://github.com/AndrewMorrow" target= "_blank">Github</a>
+<img src = "public/images/githubLogoCrop.png" alt= 'Github Logo' width="15px" height="15px"> AndrewMorrow - <a href="https://github.com/AndrewMorrow" target= "_blank">Github</a>
 
-<img src = "images/githubLogoCrop.png" alt= 'Github Logo' width="15px" height="15px"> jackparisi - <a href="https://github.com/jackparisi" target= "_blank">Github</a>
+<img src = "public/images/githubLogoCrop.png" alt= 'Github Logo' width="15px" height="15px"> jackparisi - <a href="https://github.com/jackparisi" target= "_blank">Github</a>
 
 Email: beardedmongo@gmail.com;
 jackparisi202@gmail.com
