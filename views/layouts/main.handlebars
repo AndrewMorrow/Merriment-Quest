@@ -22,15 +22,14 @@
 
         <title>Merriment Quest</title>
     </head>
-
+<body>
     <header>
         {{> nav}}
     </header>
-    <body>
-        {{{body}}}
+    {{{body}}}
 
-        {{#if logged_in}}
-        <script src="/javascripts/logout.js"></script>
-        {{/if}}
-    </body>
+    {{#if logged_in}}
+    <script src="/javascripts/logout.js"></script>
+    {{/if}}
+</body>
 </html>
