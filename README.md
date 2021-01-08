@@ -22,16 +22,15 @@ This application requires Node.js which can be downloaded <a href="https://nodej
 ## Usage Information
 
 <img src = "https://img.shields.io/badge/license-None-blue">
+
 Users are prompted with the option to find a game or find a game deal. They are also prompted with a chance to signup for an account. Once signed up for an account users are given access to their custom dashboard, which is where they can find their custom watchlist. After signing in the users can search for a game by their given criteria or search for a deal by searching with a game name. When given results the users are presented with a group of information and the chance to add the game to their custom watchlist. The watchlist will give the user easy access to the game page and possible deals.
 
 ## License
 
-<<<<<<< HEAD
+This project is not utilizing a license.
+
 This project is utilizing the
 Pictures are property of https://www.pexels.com/
-=======
-This project is not utilizing a license.
->>>>>>> ffba70fe1584b61d5e855d4a766ea4c1c827904c
 
 ## Contribution Guidelines
 
@@ -39,11 +38,7 @@ This is a fully open source project, you may fork the repository and any pull re
 
 ## Test Instructions
 
-<<<<<<< HEAD
-Users are prompted with the option to find a game or find a game deal. They are also prompted with a chance to signup for an account. Once signed up for an account users are given access to their custom dashboard, which is where they can find their custom watchlist. After signing in the users can search for a game by their given criteria or search for a deal by searching with a game name. When given results the users are presented with a group of information and the chance to add the game to their custom watchlist. The watchlist will give the user easy access to the game page and possible deals.
-=======
 This program does not utilize any tests.
->>>>>>> ffba70fe1584b61d5e855d4a766ea4c1c827904c
 
 ## Questions
 
