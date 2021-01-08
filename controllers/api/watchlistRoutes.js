@@ -6,7 +6,7 @@ router.post("/create", async (req, res) => {
     try {
         const dbWatchData = await Watchlist.create({
             game_name: req.body.game_name,
-            watchlist_user_id: req.session.user_id,
+            userId: req.session.user_id,
         });
         res.status(200).json(dbWatchData);
     } catch (err) {

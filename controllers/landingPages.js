@@ -29,10 +29,12 @@ router.get("/dashboard", withAuth, async (req, res) => {
         });
 
         watchData = await dbWatchData.get({ plain: true });
+        console.log(watchData);
 
         if (_.isEmpty(watchData.watchlists)) {
             watchData = false;
         }
+
         console.log(watchData);
 
         res.render("dashboard", {

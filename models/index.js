@@ -5,7 +5,6 @@ const { DataTypes } = require("sequelize");
 // associations will go here
 Watchlist.belongsTo(User, {
     foreignKey: {
-        name: "watchlist_user_id",
         allowNull: false,
         type: DataTypes.UUID,
     },
