@@ -4,15 +4,11 @@ const Watchlist = require("./Watchlist");
 
 // associations will go here
 Watchlist.belongsTo(User, {
-    foreignKey: {
-        allowNull: false,
-    },
+    allowNull: false,
 });
 
 User.hasMany(Watchlist, {
-    foreignKey: {
-        onDelete: "CASCADE",
-    },
+    onDelete: "CASCADE",
 });
 
 // export all models here
