@@ -1,37 +1,36 @@
+<link rel="stylesheet" href="/stylesheets/loginSignup.css">
 <main class= "container">
-    <section class="jumbotron">
-        <article>
-            <div class="card mb-3">
-                <div>
-                    <h4 class="card-header">Login</h4>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="usernameField" class="form-label">Username</label>
-                            <input
-                                class="form-control"
-                                id="user-name"
-                                aria-describedby="Username Field"
-                            />
-                            <div id="usernameHelp" class="form-text">Requirements: 4 - 25 characters</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="passwordField" class="form-label"
-                                >Password</label
-                            >
-                            <input class="form-control" type="password" id="user-password" />
-                            <div id="passwordHelp" class="form-text">Requirements: minimum 8 characters</div>
-                        </div>
-                        <button id="login-btn" type="submit" class="btn btn-primary mr-3">
-                            Login
-                        </button>
-                        <a href="/signup">Sign up instead</a>
-                    </form>
-                </div>
+    <article>
+        <div class="card mb-3">
+            <div>
+                <h4 class="card-header">Login</h4>
             </div>
-        </article>
-    </section>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="usernameField" class="form-label">Username</label>
+                        <input
+                            class="form-control"
+                            id="user-name"
+                            aria-describedby="Username Field"
+                        />
+                        <div id="usernameHelp" class="form-text">Requirements: 4 - 25 characters</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordField" class="form-label"
+                            >Password</label
+                        >
+                        <input class="form-control" type="password" id="user-password" />
+                        <div id="passwordHelp" class="form-text">Requirements: minimum 8 characters</div>
+                    </div>
+                    <button id="login-btn" type="submit" class="btn btn-primary mr-3">
+                        Login
+                    </button>
+                    <a href="/signup">Sign up instead</a>
+                </form>
+            </div>
+        </div>
+    </article>
 </main>
 {{> bootstrap-cdn}}
 <script src="javascripts/login.js"></script>

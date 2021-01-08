@@ -21,14 +21,17 @@
             </div>
         </div>
     </div>
+    {{#unless logged_in}}
     <div class=" acntBtns d-flex justify-content-center">
         <div class=" subHead card optionCard" style="width:12rem">
             <div class="card-body">
             <h4 class="card-text">For the best experience, create an account</h4>
+            <h4 class="card-text">{{logged_in}}</h4>
             <br>
                 <a href="/signup" type="button" class="btn btn-secondary acctBtn">Create Account</a>
             </div>
         </div>
     </div>
+    {{/unless}}
 </main>
 {{> bootstrap-cdn}}
