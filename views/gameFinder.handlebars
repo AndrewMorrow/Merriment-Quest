@@ -1,11 +1,11 @@
+<link rel="stylesheet" href="/stylesheets/gameFinderStyle.css">
 <main class= "container">
     <h2 class="pageHead">Find Your Next Game</h2>
     <div class="container gameSearch">
         <div class="row" id="genre">
-           <div class="col">
-           <h4 class="finderHead">Choose a Genre or Multiple Genres</h4>
-           <br>
-           <div class="form-check">
+            <div class="col searchContentBox">
+            <h4 class="finderHead">Choose a Genre or Multiple Genres</h4>
+            <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="4" id="action">
                     <label class="form-check-label" for="action">
                         Action
@@ -27,9 +27,8 @@
         </div>
         <hr>
         <div class="row" id="platforms">
-            <div class="col">
+            <div class="col searchContentBox">
             <h4 class="finderHead">Choose a Platform or Multiple Platforms</h4>
-            <br>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="4" id="pc">
                     <label class="form-check-label" for="pc">
@@ -58,9 +57,8 @@
         </div>
         <hr>
         <div class="row" id="tags">
-            <div class="col">
+            <div class="col searchContentBox">
             <h4 class="finderHead">Choose a Tag or Multiple Tags</h4>
-                <br>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="31" id="single">
                         <label class="form-check-label" for="single">
@@ -89,7 +87,7 @@
         </div>
     </div>
     <hr>
-    <center><button class= "btn btn-primary mr-3 rand-search-btn">Find a game</button></center>
+    <center><button class= "btn btn-dark mr-3 rand-search-btn mb-5">Find a game</button></center>
 </main>
 {{> bootstrap-cdn}}
 <script src="/javascripts/gameFinder.js"></script>

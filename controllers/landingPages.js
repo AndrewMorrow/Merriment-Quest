@@ -5,7 +5,7 @@ const axios = require("axios");
 const _ = require("lodash/core");
 
 //           Home Page
-router.get("/home", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         res.render("homepage", {
             logged_in: req.session.loggedIn,
@@ -20,6 +20,7 @@ router.get("/home", async (req, res) => {
 // get all blogs for a specific user
 router.get("/dashboard", withAuth, async (req, res) => {
     try {
+        let watchData = true;
         const dbWatchData = await User.findByPk(req.session.user_id, {
             attributes: {
                 exclude: ["user_password", "user_id"],
@@ -27,9 +28,12 @@ router.get("/dashboard", withAuth, async (req, res) => {
             include: [{ model: Watchlist }],
         });
 
-        // console.log(dbWatchData);
+        watchData = await dbWatchData.get({ plain: true });
+        console.log(watchData);
 
-        const watchData = dbWatchData.get({ plain: true });
+        if (_.isEmpty(watchData.watchlists)) {
+            watchData = false;
+        }
 
         console.log(watchData);
 
@@ -105,6 +109,8 @@ router.get("/cheapsharkSearch", async (req, res) => {
     try {
         let rawgParams = {};
         let cheapValue = true;
+        let hasRating = true;
+        let hasVideo = true;
         // console.log(req.query.title);
         const cheapConfig = {
             url: `/deals?title=${req.query.title}&sortBy=Title&limit=1&storeID=1,2,3,7,11&onSale=1`,
@@ -113,10 +119,10 @@ router.get("/cheapsharkSearch", async (req, res) => {
         };
         const apiCheapData = await axios.request(cheapConfig);
         const cheapData = apiCheapData.data;
-        console.log(cheapData);
+        // console.log(cheapData);
 
         if (_.isEmpty(cheapData)) {
-            console.log("data is empty");
+            // console.log("data is empty");
             cheapValue = false;
         }
 
@@ -131,11 +137,23 @@ router.get("/cheapsharkSearch", async (req, res) => {
         const apiGameData = await axios.request(rawgConfig);
         const game = apiGameData.data.results[0];
         // console.log(game);
+
+        if (_.isEmpty(game.ratings)) {
+            // console.log("data is empty");
+            hasRating = false;
+        }
+
+        if (_.isEmpty(game.clip)) {
+            // console.log("data is empty");
+            hasVideo = false;
+        }
         res.render("gameView", {
             logged_in: req.session.loggedIn,
             game,
             cheapData,
             cheapValue,
+            hasVideo,
+            hasRating,
         });
     } catch (err) {
         console.log(err);
@@ -149,6 +167,8 @@ router.get("/gameDealFinder", async (req, res) => {
         let rawgParams = {};
         let cheapParams = {};
         let cheapValue = true;
+        let hasVideo = true;
+        let hasRating = true;
 
         if (Object.keys(req.query.platforms).length !== 0) {
             rawgParams.platforms = req.query.platforms;
@@ -193,12 +213,23 @@ router.get("/gameDealFinder", async (req, res) => {
         if (_.isEmpty(cheapData.length)) {
             cheapValue = false;
         }
+        if (_.isEmpty(game.ratings)) {
+            // console.log("data is empty");
+            hasRating = false;
+        }
+
+        if (_.isEmpty(game.clip)) {
+            // console.log("data is empty");
+            hasVideo = false;
+        }
 
         res.render("gameView", {
             logged_in: req.session.loggedIn,
             game,
             cheapData,
             cheapValue,
+            hasRating,
+            hasVideo,
         });
     } catch (err) {
         console.log(err);
