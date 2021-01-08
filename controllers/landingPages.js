@@ -93,7 +93,7 @@ router.get("/login", (req, res) => {
 router.get("/signup", (req, res) => {
     // If the user is already logged in, redirect to the homepage
     if (req.session.loggedIn) {
-        res.redirect("/");
+        res.redirect("/home");
         return;
     }
     // Otherwise, render the 'sign-up' template
@@ -105,6 +105,8 @@ router.get("/cheapsharkSearch", async (req, res) => {
     try {
         let rawgParams = {};
         let cheapValue = true;
+        let hasRating = true;
+        let hasVideo = true;
         // console.log(req.query.title);
         const cheapConfig = {
             url: `/deals?title=${req.query.title}&sortBy=Title&limit=1&storeID=1,2,3,7,11&onSale=1`,
@@ -113,10 +115,10 @@ router.get("/cheapsharkSearch", async (req, res) => {
         };
         const apiCheapData = await axios.request(cheapConfig);
         const cheapData = apiCheapData.data;
-        console.log(cheapData);
+        // console.log(cheapData);
 
         if (_.isEmpty(cheapData)) {
-            console.log("data is empty");
+            // console.log("data is empty");
             cheapValue = false;
         }
 
@@ -131,11 +133,23 @@ router.get("/cheapsharkSearch", async (req, res) => {
         const apiGameData = await axios.request(rawgConfig);
         const game = apiGameData.data.results[0];
         // console.log(game);
+
+        if (_.isEmpty(game.ratings)) {
+            // console.log("data is empty");
+            hasRating = false;
+        }
+
+        if (_.isEmpty(game.clip)) {
+            // console.log("data is empty");
+            hasVideo = false;
+        }
         res.render("gameView", {
             logged_in: req.session.loggedIn,
             game,
             cheapData,
             cheapValue,
+            hasVideo,
+            hasRating,
         });
     } catch (err) {
         console.log(err);
@@ -149,6 +163,8 @@ router.get("/gameDealFinder", async (req, res) => {
         let rawgParams = {};
         let cheapParams = {};
         let cheapValue = true;
+        let hasVideo = true;
+        let hasRating = true;
 
         if (Object.keys(req.query.platforms).length !== 0) {
             rawgParams.platforms = req.query.platforms;
@@ -193,12 +209,23 @@ router.get("/gameDealFinder", async (req, res) => {
         if (_.isEmpty(cheapData.length)) {
             cheapValue = false;
         }
+        if (_.isEmpty(game.ratings)) {
+            // console.log("data is empty");
+            hasRating = false;
+        }
+
+        if (_.isEmpty(game.clip.clip)) {
+            // console.log("data is empty");
+            hasVideo = false;
+        }
 
         res.render("gameView", {
             logged_in: req.session.loggedIn,
             game,
             cheapData,
             cheapValue,
+            hasRating,
+            hasVideo,
         });
     } catch (err) {
         console.log(err);

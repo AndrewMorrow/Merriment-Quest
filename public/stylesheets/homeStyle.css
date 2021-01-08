@@ -19,7 +19,6 @@ body {
 
 .pageHead {
     text-align: center;
-    color: #e18ecf;
     font-family: "Yeon Sung", cursive;
 }
 
@@ -48,15 +47,6 @@ body {
     background-color: #2d3620;
     color: black;
 } */
-
-a {
-    color: #e18ecf;
-}
-
-.subHead {
-    text-align: center;
-    color: #e18ecf;
-}
 
 .loginBtn {
     align-items: center;
@@ -93,4 +83,10 @@ a {
     position: absolute;
     left: 75px;
     bottom: 20px;
+}
+
+.acctBtn {
+    position: absolute;
+    left: 30px;
+    bottom: 35px;
 }

@@ -1,19 +1,21 @@
+<link rel="stylesheet" href="/stylesheets/gameViewStyle.css">
 <main class ="container">
-<div class="card text-center mb-3 bg-transparent">
+<div class="card text-center mb-3 bg-transparent border-0">
     <div class="card-header">
-        <h5>Our closest match!</h5>
+        <h5>Our closest game match!</h5>
     </div>
     <div class="card-body">
         <h2 class="card-title game-name">{{game.name}}</h2>
         <p class="card-text">Released: {{game.released}}</p>
+        {{#if hasRating}}
         <h5 class="card-text"> Ratings</h5>
         <p>Metacritic: {{game.metacritic}}</p>
-        <div class="card-text mr-2 d-flex justify-content-around">
+        <div class="card-text mr-2 d-flex justify-content-around border-top border-dark mb-3">
             {{#each game.ratings}}
             <h5>{{title}}: {{percent}}%</h5>
             {{/each}}
         </div>
-        {{!-- <div class ="d-flex justify-content-around flex-wrap"> --}}
+        {{/if}}
         <div id="game-screenshots" class="carousel slide mb-4" data-ride="carousel">
             <ol class="carousel-indicators">
                 {{#each game.short_screenshots}}
@@ -46,32 +48,33 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        {{!-- </div> --}}
+        {{#if hasVideo}}
         <div class="mb-2">
             <video src={{game.clip.clip}} height="420" controls></video>
             <p>Add a game to your watchlist to easily check a deal later.</p>
-            <button class= "btn btn-dark add-watch-btn"> Add to watchlist </button>
+            <button class= "btn btn-secondary add-watch-btn"> Add to watchlist </button>
         </div>
+        {{/if}}
     </div>
-    <div class="card-footer bg-transparent">
+    <div class="card-footer bg-transparent border-0">
         <p>Not what you had in mind?</p>
-        <a href="/gameFinder" class="btn btn-primary">Try again</a> 
+        <a href="/gameFinder" class="btn btn-secondary">Try again</a> 
     </div>
 </div>
 
-<div class="card text-center">
-    <div class="card-header">
-        <h5>Deals by Cheapshark!</h5>
+<div class="card text-center bg-transparent border-0">
+    <div class="card-header border-top border-dark">
+        <h2>Deals by Cheapshark!</h2>
     </div>
-    <div class="card-body">
+    <div class="card-body border-0">
         {{#if cheapValue}}
         {{#each cheapData}}
         <div class= "border border-4 border-dark mb-3">
             <h4 class="card-title">{{title}}</h4>
         <div>
             <img src="{{thumb}}" width="110" height="60" class="rounded" >
-            <p class= "card-text">Sale Price: {{salePrice}} vs. Normal Price: {{normalPrice}} </p>
-            <a href="https://www.cheapshark.com/redirect?dealID={{dealID}}"class="btn btn-dark mb-2">Get Deal Here</a>
+            <p class= "card-text">Sale Price: ${{salePrice}} vs. Normal Price: ${{normalPrice}} </p>
+            <a href="https://www.cheapshark.com/redirect?dealID={{dealID}}"class="btn btn-secondary mb-2">Get Deal Here</a>
         </div>
         </div>
         {{/each}}
@@ -81,7 +84,7 @@
     
     <div class="card-footer">
         <p>Not what you had in mind?</p>
-        <a href="/gameFinder" class="btn btn-primary">Try again</a>
+        <a href="/gameFinder" class="btn btn-secondary">Try again</a>
     </div>
 </div>
 </main>

@@ -4,13 +4,13 @@
     Light Cyan: #dcfffd
 ---- */
 
-body {
-    /* background: url() no-repeat center center fixed; */
+/* body {
+    background: url() no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
+} */
 
 /* body {
     background-color: #292829;
@@ -18,7 +18,7 @@ body {
 
 .pageHead {
     text-align: center;
-    color: #e18ecf;
+    color: white;
     font-family: "Yeon Sung", cursive;
 }
 
@@ -43,18 +43,12 @@ body {
     min-height: 252px;
 }
 
-.navbar-custom {
-    background-color: #2d3620;
-    color: black;
-}
-
 a {
     color: #e18ecf;
 }
 
 .subHead {
     text-align: center;
-    color: #e18ecf;
 }
 
 .loginBtn {
@@ -76,10 +70,18 @@ a {
 
 .finderHead {
     text-align: center;
-    color: #e18ecf;
     font-family: "Yeon Sung", cursive;
 }
 
 .gameSearch {
     align-items: center;
+}
+
+.card {
+    background-color: #313130ef !important;
+    color: White;
+}
+
+.textWhite {
+    color: whitesmoke;
 }

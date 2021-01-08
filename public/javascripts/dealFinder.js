@@ -6,7 +6,7 @@ const findDealCall = async (e) => {
     let baseQuery = "/cheapsharkSearch?";
     const searchTitle = $gameSearchInput.val();
 
-    const query = `${baseQuery}&title=${searchTitle}`;
+    const query = `${baseQuery}title=${searchTitle}`;
 
     window.location.href = query;
     // const response = await fetch(query, {

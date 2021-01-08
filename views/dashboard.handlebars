@@ -1,21 +1,19 @@
-<main>
+<link rel="stylesheet" href="/stylesheets/dashboardStyle.css">
+<main class="container">
     <h1 class="pageHead">
         {{watchData.user_name}} Dashboard
     </h1>
-    <div class="container">
         <div class="row">
             <div class="col">
                 <h2 class="pageHead">
                     Watchlist
                 </h2>
+                <p class="d-flex justify-content-center"> Click a game to check the current deals!</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col watchList">
+            <div class="list-group d-flex justify-content-center">
                 {{#each watchData.watchlists}}
-                <p>{{game_name}}</p>
+                <a href="/cheapsharkSearch?title={{game_name}}" class="list-group-item list-group-item-action list-group-item-dark">{{game_name}}</a>
                 {{/each}}
             </div>
-        </div>
-    </div>
 </main>
