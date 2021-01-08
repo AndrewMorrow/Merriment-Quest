@@ -14,7 +14,8 @@
             <div class="list-group d-flex justify-content-center">
                 {{#if watchData}}
                 {{#each watchData.watchlists}}
-                <a href="/cheapsharkSearch?title={{game_name}}" class="list-group-item list-group-item-action list-group-item-dark">{{game_name}}</a>
+                <a href="/cheapsharkSearch?title={{game_name}}" class="list-group-item list-group-item-action list-group-item-dark">{{game_name}}
+                <a id="{{id}}" class="btn btn-dark deleteBtn mb-3">Delete</a></a>
                 {{/each}}
                 {{else}}
                 <h5 class= "d-flex justify-content-center"> You have nothing in your watchlist. Try adding some games!</h5>
@@ -22,3 +23,4 @@
             </div>
 </main>
 {{> bootstrap-cdn}}
+<script src="/javascripts/dashboard.js"></script>

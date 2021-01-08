@@ -49,16 +49,22 @@
             </a>
         </div>
         {{#if hasVideo}}
-        <div class="mb-2">
+        <div class="mb-3">
             <video src={{game.clip.clip}} height="420" controls></video>
         </div>
         {{/if}}
+        {{#if logged_in}}
         <p>Add a game to your watchlist to easily check a deal later.</p>
         <button class= "btn btn-secondary add-watch-btn"> Add to watchlist </button>
+        {{else}}
+        <p>Login to get access to the watchlist feature.</p>
+        {{/if}}
     </div>
     <div class="card-footer bg-transparent border-0">
         <p>Not what you had in mind?</p>
-        <a href="/gameFinder" class="btn btn-secondary">Try again</a> 
+        <a href="#" class="btn btn-secondary tryAgain mr-2">Try again</a> 
+        <a href="/gamefinder" class="btn btn-secondary mr-2">Change search</a> 
+        <a href="/dealfinder" class="btn btn-secondary">Specific search</a> 
     </div>
 </div>
 
@@ -81,11 +87,6 @@
         {{else}}
         <h5> We are sorry but no deals were found for this title. </h5>
         {{/if}}
-    
-    <div class="card-footer">
-        <p>Not what you had in mind?</p>
-        <a href="/gameFinder" class="btn btn-secondary">Try again</a>
-    </div>
 </div>
 </main>
 {{> bootstrap-cdn}}

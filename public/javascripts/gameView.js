@@ -1,5 +1,6 @@
 const $addWatchBtn = $(".add-watch-btn");
 const $gameName = $(".game-name");
+const $tryAgainBtn = $(".tryAgain");
 
 const addNewWatch = async (e) => {
     e.preventDefault();
@@ -15,10 +16,19 @@ const addNewWatch = async (e) => {
         headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-        console.log("Call Successful");
+        // console.log("Call Successful");
+        alert("Your game was successfully added to the watchlist.");
     } else {
         alert("Something went wrong, please try again.");
     }
 };
 
+const reloadPage = async (e) => {
+    e.preventDefault();
+
+    location.reload();
+};
+
 $addWatchBtn.on("click", addNewWatch);
+
+$tryAgainBtn.on("click", reloadPage);

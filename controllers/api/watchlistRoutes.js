@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { Watchlist } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // save a new game to watchlist route: api/watchlist/create
-router.post("/create", async (req, res) => {
+router.post("/create", withAuth, async (req, res) => {
     try {
         const dbWatchData = await Watchlist.create({
             game_name: req.body.game_name,
