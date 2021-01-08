@@ -21,6 +21,7 @@ const submitCredentials = async (e) => {
         });
         if (response.ok) {
             // If successful, redirect the browser to the dashboard page
+            console.log("Call Successful");
             document.location.replace("/dashboard");
         } else {
             alert("Please check your credentials and try again.");

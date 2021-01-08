@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="/stylesheets/gameFinderStyle.css">
+<main class= "container">
+    <h2 class="pageHead">Find Your Next Game</h2>
+    <div class="container gameSearch">
+        <div class="row" id="genre">
+            <div class="col searchContentBox">
+            <h4 class="finderHead">Choose a Genre or Multiple Genres</h4>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="4" id="action">
+                    <label class="form-check-label" for="action">
+                        Action
+                    </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="3" id="adventure">
+                    <label class="form-check-label" for="adventure">
+                        Adventure
+                    </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="10" id="strategy">
+                    <label class="form-check-label" for="strategy">
+                        Strategy
+                    </label>
+            </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row" id="platforms">
+            <div class="col searchContentBox">
+            <h4 class="finderHead">Choose a Platform or Multiple Platforms</h4>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="4" id="pc">
+                    <label class="form-check-label" for="pc">
+                        PC
+                    </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="1" id="xbox">
+                    <label class="form-check-label" for="xbox">
+                        Xbox One
+                    </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="18" id="ps4">
+                    <label class="form-check-label" for="ps4">
+                        Playstation 4
+                    </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="7" id="switch">
+                    <label class="form-check-label" for="switch">
+                        Nintendo Switch
+                    </label>
+            </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row" id="tags">
+            <div class="col searchContentBox">
+            <h4 class="finderHead">Choose a Tag or Multiple Tags</h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="31" id="single">
+                        <label class="form-check-label" for="single">
+                            Single Player
+                        </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="7" id="multi">
+                        <label class="form-check-label" for="multi">
+                            Multiplayer
+                        </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="8" id="first">
+                        <label class="form-check-label" for="first">
+                            First Person Viewpoint
+                        </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="149" id="third">
+                        <label class="form-check-label" for="third">
+                            Third Person Viewpoint
+                        </label>
+                </div>
+                </div>
+        </div>
+    </div>
+    <hr>
+    <center><button class= "btn btn-dark mr-3 rand-search-btn mb-5">Find a game</button></center>
+</main>
+{{> bootstrap-cdn}}
+<script src="/javascripts/gameFinder.js"></script>
