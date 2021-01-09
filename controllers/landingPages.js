@@ -28,13 +28,13 @@ router.get("/dashboard", withAuth, async (req, res) => {
         });
 
         watchData = await dbWatchData.get({ plain: true });
-        console.log(watchData);
+        // console.log(watchData);
 
         if (_.isEmpty(watchData.watchlists)) {
             watchData = false;
         }
 
-        console.log(watchData);
+        // console.log(watchData);
 
         res.render("dashboard", {
             logged_in: req.session.loggedIn,
@@ -101,13 +101,15 @@ router.get("/cheapsharkSearch", async (req, res) => {
         let hasVideo = true;
         // console.log(req.query.title);
         const cheapConfig = {
-            url: `/deals?title=${req.query.title}&sortBy=Title&limit=1&storeID=1,2,3,7,11&onSale=1`,
+            url: `/deals?title=${req.query.title}&sortBy=Title&limit=1&onSale=1`,
             method: "GET",
             baseURL: "https://www.cheapshark.com/api/1.0",
         };
         const apiCheapData = await axios.request(cheapConfig);
         const cheapData = apiCheapData.data;
         // console.log(cheapData);
+
+        // console.log(apiCheapData);
 
         if (_.isEmpty(cheapData)) {
             // console.log("data is empty");
@@ -163,7 +165,7 @@ router.get("/cheapsharkSearch", async (req, res) => {
 router.get("/gameDealFinder", async (req, res) => {
     try {
         let rawgParams = {};
-        let cheapParams = {};
+        // let cheapParams = {};
         let cheapValue = true;
         let hasVideo = true;
         let hasRating = true;
@@ -178,7 +180,7 @@ router.get("/gameDealFinder", async (req, res) => {
             rawgParams.tags = req.query.tags;
         }
         const rawgConfig = {
-            url: "games?page_size=20&ordering=-metacritic",
+            url: "games?page_size=30&ordering=-metacritic",
             method: "GET",
             baseURL: "https://api.rawg.io/api",
             params: rawgParams,
@@ -194,21 +196,23 @@ router.get("/gameDealFinder", async (req, res) => {
         };
         const game = gameData[randNum(gameDataLen)];
 
-        cheapParams.title = game.name;
+        const gameTitle = game.name.trim();
+        // cheapParams.title = `${game.name}`;
 
+        // console.log(cheapParams);
         const cheapConfig = {
-            url: "/deals?sortBy=Title&limit=1&storeID=1,2,3,7,11&onSale=1",
+            url: `/deals?title=${gameTitle}&sortBy=Title&limit=1&onSale=1`,
             method: "GET",
             baseURL: "https://www.cheapshark.com/api/1.0",
-            params: cheapParams,
         };
 
         const apiCheapData = await axios.request(cheapConfig);
         const cheapData = apiCheapData.data;
 
+        // console.log(apiCheapData);
         // console.log(cheapData);
 
-        if (_.isEmpty(cheapData.length)) {
+        if (cheapData.length === 0) {
             cheapValue = false;
         }
         if (_.isEmpty(game.ratings)) {
