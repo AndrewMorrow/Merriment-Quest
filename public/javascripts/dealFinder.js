@@ -9,17 +9,6 @@ const findDealCall = async (e) => {
     const query = `${baseQuery}title=${searchTitle}`;
 
     window.location.href = query;
-    // const response = await fetch(query, {
-    //     method: "GET",
-    //     headers: { "Content-Type": "application/json" },
-    // });
-    // if (response.ok) {
-    //     // If successful, redirect the browser to the dashboard page
-    //     // document.location.replace("/gameView");
-    //     console.log("Call Successful");
-    // } else {
-    //     alert("Please check your credentials and try again.");
-    // }
 };
 
 $findDealBtn.on("click", findDealCall);

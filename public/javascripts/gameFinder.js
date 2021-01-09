@@ -16,7 +16,6 @@ const randSearchCall = async (e) => {
     e.preventDefault();
 
     let baseQuery = "/gameDealFinder?";
-    // let baseQuery = "/rawgGameSearch?";
     let genres = [];
     let platforms = [];
     let tags = [];

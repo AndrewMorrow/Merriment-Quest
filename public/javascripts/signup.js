@@ -3,16 +3,7 @@ const $userName = $("#new-username");
 const $userPassword = $("#new-user-password");
 const $userPasswordCheck = $("#new-user-password-check");
 
-// sends data to create a user in the db
-// const createUser = (credentials) => {
-//     return $.ajax({
-//         url: "/api/user/create",
-//         data: credentials,
-//         method: "POST",
-//     });
-// };
-
-// gets data to send in ajax call
+// gets data to send in fetch call
 const createCredentials = async (e) => {
     e.preventDefault();
     if ($userPassword.val().trim() !== $userPasswordCheck.val().trim()) {

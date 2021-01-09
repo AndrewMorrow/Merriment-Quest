@@ -1,20 +1,24 @@
 <link rel="stylesheet" href="/stylesheets/dashboardStyle.css">
 <main class="container">
-    <h1 class="pageHead">
+    <h1 class="d-flex justify-content-center">
         {{watchData.user_name}} Dashboard
     </h1>
         <div class="row">
             <div class="col">
-                <h2 class="pageHead">
+                <h2 class="d-flex justify-content-center">
                     Watchlist
                 </h2>
+                <div class="d-flex justify-content-center">
+                <a href="/gameFinder" class="btn btn-secondary cardBtn mr-3">Discover Games</a>
+                <a href="/dealFinder" class="btn btn-secondary cardBtn ">Discover Deals</a>
+                </div>
                 <p class="d-flex justify-content-center"> Click a game to check the current deals!</p>
             </div>
         </div>
             <div class="list-group d-flex justify-content-center">
                 {{#if watchData}}
                 {{#each watchData.watchlists}}
-                <a href="/cheapsharkSearch?title={{game_name}}" class="list-group-item list-group-item-action list-group-item-dark">{{game_name}}
+                <a href="/cheapsharkSearch?title={{game_name}}" class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-center">{{game_name}}
                 <a id="{{id}}" class="btn btn-dark deleteBtn mb-3">Delete</a></a>
                 {{/each}}
                 {{else}}

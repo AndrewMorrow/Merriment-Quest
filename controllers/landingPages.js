@@ -17,7 +17,6 @@ router.get("/", async (req, res) => {
 });
 
 //     Dashboard Landing Page
-// get all blogs for a specific user
 router.get("/dashboard", withAuth, async (req, res) => {
     try {
         let watchData = true;
@@ -61,17 +60,6 @@ router.get("/gamefinder", async (req, res) => {
 router.get("/dealfinder", async (req, res) => {
     try {
         res.render("dealFinder", {
-            logged_in: req.session.loggedIn,
-        });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
-
-router.get("/gameview", async (req, res) => {
-    try {
-        res.render("gameview", {
             logged_in: req.session.loggedIn,
         });
     } catch (err) {

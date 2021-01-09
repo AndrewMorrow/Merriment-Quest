@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/stylesheets/gameViewStyle.css">
-<main class ="container">
+<main class ="container mb-4">
 <div class="card text-center mb-3 bg-transparent border-0">
     <div class="card-header">
         <h5>Our closest game match!</h5>
@@ -10,13 +10,13 @@
         {{#if hasRating}}
         <h5 class="card-text"> Ratings</h5>
         <p>Metacritic: {{game.metacritic}}</p>
-        <div class="card-text mr-2 d-flex justify-content-around border-top border-dark mb-3">
+        <div class="card-text mr-2 d-flex flex-wrap justify-content-around border-top border-dark mb-3">
             {{#each game.ratings}}
-            <h5>{{title}}: {{percent}}%</h5>
+            <h5>| {{title}}: {{percent}}% |</h5>
             {{/each}}
         </div>
         {{/if}}
-        <div id="game-screenshots" class="carousel slide mb-4" data-ride="carousel">
+        <div id="game-screenshots" class="carousel slide carousel-fade mb-4" data-ride="carousel">
             <ol class="carousel-indicators">
                 {{#each game.short_screenshots}}
                 {{#if @first}}
@@ -30,11 +30,11 @@
                 {{#each game.short_screenshots}}
                     {{#if @first}}
                         <div class= "carousel-item active">
-                            <img src="{{image}}" class="d-block w-100" height="480">
+                            <img src="{{image}}" class="d-block w-100" >
                         </div>
                     {{else}}
                         <div class= "carousel-item">
-                            <img src="{{image}}" class="d-block w-100"  height="480">
+                            <img src="{{image}}" class="d-block w-100">
                         </div>
                     {{/if}}
                 {{/each}}
@@ -49,8 +49,8 @@
             </a>
         </div>
         {{#if hasVideo}}
-        <div class="mb-3">
-            <video src={{game.clip.clip}} height="420" controls></video>
+        <div class="d-flex mb-3 embed-responsive embed-responsive-16by9">
+            <video class="embed-responsive-item" src={{game.clip.clip}} controls></video>
         </div>
         {{/if}}
         {{#if logged_in}}
@@ -62,23 +62,23 @@
     </div>
     <div class="card-footer bg-transparent border-0">
         <p>Not what you had in mind?</p>
-        <a href="#" class="btn btn-secondary tryAgain mr-2">Try again</a> 
-        <a href="/gamefinder" class="btn btn-secondary mr-2">Change search</a> 
-        <a href="/dealfinder" class="btn btn-secondary">Specific search</a> 
+        <a href="#" class="btn btn-secondary tryAgain mr-2 mb-2">Try again</a> 
+        <a href="/gamefinder" class="btn btn-secondary mr-2 mb-2">Change search</a> 
+        <a href="/dealfinder" class="btn btn-secondary mb-2">Specific search</a> 
     </div>
 </div>
 
-<div class="card text-center bg-transparent border-0">
+<div class="card text-center bg-transparent border-0 mb-4">
     <div class="card-header border-top border-dark">
         <h2>Deals by Cheapshark!</h2>
     </div>
-    <div class="card-body border-0">
+    <div class="card-body border-0 mb-4">
         {{#if cheapValue}}
         {{#each cheapData}}
         <div class= "border border-4 border-dark mb-3">
             <h4 class="card-title">{{title}}</h4>
         <div>
-            <img src="{{thumb}}" width="110" height="60" class="rounded" >
+            <img src="{{thumb}}" class="rounded mb-2" >
             <p class= "card-text">Sale Price: ${{salePrice}} vs. Normal Price: ${{normalPrice}} </p>
             <a href="https://www.cheapshark.com/redirect?dealID={{dealID}}"class="btn btn-secondary mb-2">Get Deal Here</a>
         </div>
@@ -87,6 +87,27 @@
         {{else}}
         <h5> We are sorry but no deals were found for this title. </h5>
         {{/if}}
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="watchlistAdd" tabindex="-1" aria-labelledby="watchlist success modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="watchModalTitle">Watchlist Updated</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="modalExit" aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        The game was successfully saved to the watchlist!
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="/dashboard" class="btn btn-info">View Dashboard</a>
+        </div>
+    </div>
+    </div>
 </div>
 </main>
 {{> bootstrap-cdn}}

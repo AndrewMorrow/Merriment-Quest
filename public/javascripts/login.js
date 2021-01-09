@@ -2,7 +2,7 @@ const $userName = $("#user-name");
 const $userPassword = $("#user-password");
 const $loginBtn = $("#login-btn");
 
-// gets data from fields to make ajax call
+// gets data from fields to make fetch call
 const submitCredentials = async (e) => {
     e.preventDefault();
     if (
@@ -21,7 +21,7 @@ const submitCredentials = async (e) => {
         });
         if (response.ok) {
             // If successful, redirect the browser to the dashboard page
-            console.log("Call Successful");
+            // console.log("Call Successful");
             document.location.replace("/dashboard");
         } else {
             alert("Please check your credentials and try again.");
@@ -29,12 +29,6 @@ const submitCredentials = async (e) => {
     } else {
         alert("Please check requirements for each field.");
     }
-
-    // const res = await $.ajax({
-    //     url: "/api/user/login",
-    //     data: credentials,
-    //     method: "POST",
-    // });
 };
 
 // triggers when login button is clicked
