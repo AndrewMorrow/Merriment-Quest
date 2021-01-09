@@ -41,6 +41,86 @@
             </div>
         </div>
     </article>
+
+    <!-- Modal -->
+<div class="modal fade" id="passwordMatchModal" tabindex="-1" aria-labelledby="Password Match Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="errorOccurredMatch">Error Occurred</h5>
+            <button type="button" class="close modalExit" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            The password fields do not match.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Modal -->
+<div class="modal fade" id="userExistsModal" tabindex="-1" aria-labelledby="Password Match Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="errorOccurredUser">Error Occurred</h5>
+            <button type="button" class="close modalExit" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            That username is already taken.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Modal -->
+<div class="modal fade" id="fieldRequiredSignupModal" tabindex="-1" aria-labelledby="Password Match Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="errorOccurredFields">Error Occurred</h5>
+            <button type="button" class="close modalExit" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            Please check Requirements for each field.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Modal -->
+<div class="modal fade" id="catchErrorModal" tabindex="-1" aria-labelledby="Password Match Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="errorOccurred">Error Occurred</h5>
+            <button type="button" class="close modalExit" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            Something went wrong, Please try again.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
 </main>
 {{> bootstrap-cdn}}
 <script src="/javascripts/signup.js"></script>

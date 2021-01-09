@@ -24,10 +24,12 @@ const submitCredentials = async (e) => {
             // console.log("Call Successful");
             document.location.replace("/dashboard");
         } else {
-            alert("Please check your credentials and try again.");
+            // alert("Please check your credentials and try again.");
+            $("#infoIncorrectModal").modal("show");
         }
     } else {
-        alert("Please check requirements for each field.");
+        // alert("Please check requirements for each field.");
+        $("#fieldRequiredLoginModal").modal("show");
     }
 };
 
