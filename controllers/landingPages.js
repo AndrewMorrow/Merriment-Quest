@@ -99,6 +99,7 @@ router.get("/cheapsharkSearch", async (req, res) => {
         let cheapValue = true;
         let hasRating = true;
         let hasVideo = true;
+        const storeInfo = [];
         // console.log(req.query.title);
 
         rawgParams.search = req.query.title;
@@ -113,9 +114,7 @@ router.get("/cheapsharkSearch", async (req, res) => {
         const game = apiGameData.data.results[0];
         // console.log(game);
 
-        const gameTitle = game.name.trim();
-
-        console.log(gameTitle);
+        // console.log(gameTitle);
 
         if (game === undefined) {
             const errMessage = "There was not a game found with that name.";
@@ -135,7 +134,7 @@ router.get("/cheapsharkSearch", async (req, res) => {
                 // console.log("data is empty");
                 hasVideo = false;
             }
-
+            const gameTitle = game.name.trim();
             const cheapConfig = {
                 url: `/deals?title=${gameTitle}&sortBy=Title&sortBy=Price&exact=1&limit=1&onSale=1`,
                 method: "GET",
@@ -146,7 +145,42 @@ router.get("/cheapsharkSearch", async (req, res) => {
 
             // console.log(cheapData);
 
-            // console.log(apiCheapData);
+            // console.log(storeInfo);
+
+            const cheapStoreConfig = {
+                url: "/stores",
+                method: "GET",
+                baseURL: "https://www.cheapshark.com/api/1.0",
+            };
+
+            const apiCheapStoreData = await axios.request(cheapStoreConfig);
+
+            const cheapStores = apiCheapStoreData.data;
+            // console.log(cheapStores);
+
+            cheapData.forEach((deal) => {
+                const storeObj = {
+                    storeID: deal.storeID,
+                };
+                storeInfo.push(storeObj);
+            });
+
+            cheapStores.forEach((store) => {
+                storeInfo.forEach((item) => {
+                    if (store.storeID === item.storeID) {
+                        // console.log(store.storeName);
+                        // item.storeName = store.storeName;
+                        item.storeName = store.storeName;
+                    }
+                });
+            });
+
+            cheapData.forEach((deal, i) => {
+                deal.storeName = storeInfo[i].storeName;
+            });
+
+            // console.log(cheapData);
+            // console.log(storeInfo);
 
             if (_.isEmpty(cheapData)) {
                 // console.log("data is empty");
@@ -175,6 +209,7 @@ router.get("/gameDealFinder", async (req, res) => {
         let cheapValue = true;
         let hasVideo = true;
         let hasRating = true;
+        const storeInfo = [];
 
         if (Object.keys(req.query.platforms).length !== 0) {
             rawgParams.platforms = req.query.platforms;
@@ -213,6 +248,39 @@ router.get("/gameDealFinder", async (req, res) => {
         const apiCheapData = await axios.request(cheapConfig);
         const cheapData = apiCheapData.data;
 
+        const cheapStoreConfig = {
+            url: "/stores",
+            method: "GET",
+            baseURL: "https://www.cheapshark.com/api/1.0",
+        };
+
+        const apiCheapStoreData = await axios.request(cheapStoreConfig);
+
+        const cheapStores = apiCheapStoreData.data;
+        // console.log(cheapStores);
+
+        cheapData.forEach((deal) => {
+            const storeObj = {
+                storeID: deal.storeID,
+            };
+            storeInfo.push(storeObj);
+        });
+
+        cheapStores.forEach((store) => {
+            storeInfo.forEach((item) => {
+                if (store.storeID === item.storeID) {
+                    // console.log(store.storeName);
+                    // item.storeName = store.storeName;
+                    item.storeName = store.storeName;
+                }
+            });
+        });
+
+        cheapData.forEach((deal, i) => {
+            deal.storeName = storeInfo[i].storeName;
+        });
+
+        // console.log(storeInfo);
         // console.log(apiCheapData);
         // console.log(cheapData);
 

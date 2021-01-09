@@ -72,10 +72,14 @@
     <div class="card-header border-top border-dark">
         <h2>Deals by Cheapshark!</h2>
     </div>
-    <div class="card-body border-0 mb-4">
+    {{!-- {{#each storeInfo}}
+        {{this.storeName}}
+    {{/each}} --}}
+    <div class="card-body mb-4">
         {{#if cheapValue}}
         {{#each cheapData}}
         <div class= "border border-4 border-dark mb-3">
+            Deal by: {{storeName}}
             <h4 class="card-title">{{title}}</h4>
         <div>
             <img src="{{thumb}}" class="rounded mb-2" >
