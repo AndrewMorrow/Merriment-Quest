@@ -19,7 +19,7 @@ const hbs = exphbs.create({ helpers });
 
 // sets up session options
 const sess = {
-    secret: "Making Bacon Pancakes",
+    secret: `${process.env.SESS_SECRET}`,
     cookie: { maxAge: 300000 },
     resave: false,
     saveUninitialized: true,
