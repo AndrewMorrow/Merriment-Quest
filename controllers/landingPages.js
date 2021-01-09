@@ -165,7 +165,6 @@ router.get("/cheapsharkSearch", async (req, res) => {
 router.get("/gameDealFinder", async (req, res) => {
     try {
         let rawgParams = {};
-        // let cheapParams = {};
         let cheapValue = true;
         let hasVideo = true;
         let hasRating = true;
@@ -197,9 +196,7 @@ router.get("/gameDealFinder", async (req, res) => {
         const game = gameData[randNum(gameDataLen)];
 
         const gameTitle = game.name.trim();
-        // cheapParams.title = `${game.name}`;
 
-        // console.log(cheapParams);
         const cheapConfig = {
             url: `/deals?title=${gameTitle}&sortBy=Title&limit=1&onSale=1`,
             method: "GET",
