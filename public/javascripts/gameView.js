@@ -27,7 +27,7 @@ const addNewWatch = async (e) => {
 const reloadPage = async (e) => {
     e.preventDefault();
 
-    location.reload();
+    location.reload().scrollTop(0, 0);
 };
 
 $addWatchBtn.on("click", addNewWatch);
