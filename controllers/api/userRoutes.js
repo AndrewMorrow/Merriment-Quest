@@ -12,7 +12,12 @@ router.post("/", async (req, res) => {
             res.status(200).json(dbUserData);
         });
     } catch (err) {
-        res.status(400).json(err);
+        // console.log(err.errors[0].type);
+        if (err.errors[0].type === "unique violation") {
+            res.status(409).json(err);
+        } else {
+            res.status(400).json(err);
+        }
     }
 });
 

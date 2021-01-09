@@ -4,6 +4,8 @@
 
 Merriment Quest is a website made for gamers, by gamers. Using some of the best APIs available, Merriment Quest can help users find their next game to play by way of a search with the user's criteria. Merriment Quest can also set up users with the best deals available for the games they are interested in, along with direct links to where they can be purchased. In addition users can created custom watchlists for games they have discovered through the site, but may not be ready to purchase.
 
+Deployed Link: https://merrimentquest.herokuapp.com/
+
 ## Table of Contents
 
 -   [Installation Instructions](#installation-instructions)
@@ -48,5 +50,5 @@ If there are further questions please contact me with the following.
 
 <img src = "public/images/githubLogoCrop.png" alt= 'Github Logo' width="15px" height="15px"> jackparisi - <a href="https://github.com/jackparisi" target= "_blank">Github</a>
 
-Email: beardedmongo@gmail.com;
+Email: beardedmongo@gmail.com &#38;
 jackparisi202@gmail.com

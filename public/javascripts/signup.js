@@ -7,11 +7,12 @@ const $userPasswordCheck = $("#new-user-password-check");
 const createCredentials = async (e) => {
     e.preventDefault();
     if ($userPassword.val().trim() !== $userPasswordCheck.val().trim()) {
-        alert("Passwords do not match.");
+        // alert("Passwords do not match.");
+        $("#passwordMatchModal").modal("show");
     } else {
         if (
             $userName.val().trim().length >= 4 &&
-            $userPassword.val().trim().length
+            $userPassword.val().trim().length >= 8
         ) {
             const credentials = {
                 user_name: $userName.val().trim(),
@@ -28,11 +29,18 @@ const createCredentials = async (e) => {
                     // If successful, redirect the browser to the dashboard page
                     document.location.replace("/dashboard");
                 } else {
-                    alert("Something went wrong, please try again");
+                    // alert("Something went wrong, please try again");
+                    console.log(response);
+                    if (response.status === 409) {
+                        $("#userExistsModal").modal("show");
+                    } else {
+                        $("#catchErrorModal").modal("show");
+                    }
                 }
             }
         } else {
-            alert("Please check Requirements for each field.");
+            // alert("Please check Requirements for each field.");
+            $("#fieldRequiredSignupModal").modal("show");
         }
     }
 };

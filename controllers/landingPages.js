@@ -100,21 +100,6 @@ router.get("/cheapsharkSearch", async (req, res) => {
         let hasRating = true;
         let hasVideo = true;
         // console.log(req.query.title);
-        const cheapConfig = {
-            url: `/deals?title=${req.query.title}&sortBy=Title&sortBy=Price&exact=1&limit=1&onSale=1`,
-            method: "GET",
-            baseURL: "https://www.cheapshark.com/api/1.0",
-        };
-        const apiCheapData = await axios.request(cheapConfig);
-        const cheapData = apiCheapData.data;
-        // console.log(cheapData);
-
-        // console.log(apiCheapData);
-
-        if (_.isEmpty(cheapData)) {
-            // console.log("data is empty");
-            cheapValue = false;
-        }
 
         rawgParams.search = req.query.title;
 
@@ -127,6 +112,10 @@ router.get("/cheapsharkSearch", async (req, res) => {
         const apiGameData = await axios.request(rawgConfig);
         const game = apiGameData.data.results[0];
         // console.log(game);
+
+        const gameTitle = game.name.trim();
+
+        console.log(gameTitle);
 
         if (game === undefined) {
             const errMessage = "There was not a game found with that name.";
@@ -146,6 +135,24 @@ router.get("/cheapsharkSearch", async (req, res) => {
                 // console.log("data is empty");
                 hasVideo = false;
             }
+
+            const cheapConfig = {
+                url: `/deals?title=${gameTitle}&sortBy=Title&sortBy=Price&exact=1&limit=1&onSale=1`,
+                method: "GET",
+                baseURL: "https://www.cheapshark.com/api/1.0",
+            };
+            const apiCheapData = await axios.request(cheapConfig);
+            const cheapData = apiCheapData.data;
+
+            // console.log(cheapData);
+
+            // console.log(apiCheapData);
+
+            if (_.isEmpty(cheapData)) {
+                // console.log("data is empty");
+                cheapValue = false;
+            }
+
             res.render("gameView", {
                 logged_in: req.session.loggedIn,
                 game,
