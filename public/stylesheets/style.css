@@ -1,87 +1,42 @@
-/* ---- Colors 
-    Orchid Pink: #e18ecf
-    raisin black: #292829
-    Light Cyan: #dcfffd
----- */
-
-.pageHead {
-    text-align: center;
-    color: white;
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    color: whitesmoke;
     font-family: "Yeon Sung", cursive;
 }
-
-.card-title {
-    text-align: center;
-}
-
-.find-deal-btn {
-    align-items: center;
-}
-
-.card-text {
-    text-align: center;
-}
-
-.btn-group {
-    align-items: center;
-}
-
-.card {
-    background-color: #dcfffd;
-    min-height: 252px;
+.wrapper {
+    min-height: 100%;
+    margin: 0 auto auto;
 }
 
 a {
     color: #f8a065;
-    font-family: "Yeon Sung", cursive;
-    /* color: #e18ecf; */
-}
-
-.subHead {
-    text-align: center;
-}
-
-.loginBtn {
-    align-items: center;
-}
-
-.acntBtns {
-    align-items: center;
-}
-
-.gameCard {
-    float: right;
-}
-
-.form-check {
-    color: white;
-    text-align: center;
-}
-
-.finderHead {
-    text-align: center;
-    font-family: "Yeon Sung", cursive;
-}
-
-.gameSearch {
-    align-items: center;
 }
 
 .card {
     background-color: #313130ef !important;
     color: White;
-}
-
-.textWhite {
-    color: whitesmoke;
+    min-height: 252px;
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    height: 40px;
+    height: 50px;
     background-color: #313130ef;
+    color: whitesmoke;
+}
+
+.modal {
+    color: whitesmoke;
+    background-color: #313130ef;
+}
+
+.modal-content {
+    background-color: #17354a;
+}
+
+.modalExit {
     color: whitesmoke;
 }

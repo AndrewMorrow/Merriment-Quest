@@ -1,9 +1,3 @@
-/* ---- Colors 
-    Orchid Pink: #e18ecf
-    raisin black: #292829
-    Light Cyan: #dcfffd
----- */
-
 body {
     background: url(/images/pexels-johannes-plenio-1165982.jpg) no-repeat center
         center fixed;
@@ -13,80 +7,18 @@ body {
     background-size: cover;
 }
 
-/* body {
-    background-color: #292829;
-} */
-
-.pageHead {
-    text-align: center;
-    font-family: "Yeon Sung", cursive;
-}
-
-.card-title {
-    text-align: center;
-}
-
-.find-deal-btn {
-    align-items: center;
-}
-
-.card-text {
-    text-align: center;
-}
-
-.btn-group {
-    align-items: center;
-}
-
-.card {
-    background-color: #dcfffd;
-    min-height: 252px;
-}
-
-/* .navbar-custom {
-    background-color: #2d3620;
-    color: black;
-} */
-
-.loginBtn {
-    align-items: center;
-}
-
-.acntBtns {
-    align-items: center;
-}
-
-.gameCard {
-    float: right;
-}
-
-.form-check {
-    color: white;
-    text-align: center;
-}
-
-.finderHead {
-    text-align: center;
-    color: #e18ecf;
-    font-family: "Yeon Sung", cursive;
-}
-
-.gameSearch {
-    align-items: center;
-}
-
 .optionCard {
     position: relative;
+    max-height: 252px;
 }
 
 .cardBtn {
     position: absolute;
-    left: 75px;
+    left: 80px;
     bottom: 20px;
 }
 
 .acctBtn {
     position: absolute;
-    left: 30px;
-    bottom: 35px;
+    bottom: 20px;
 }

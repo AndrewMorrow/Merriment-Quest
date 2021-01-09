@@ -17,7 +17,8 @@ const addNewWatch = async (e) => {
     });
     if (response.ok) {
         // console.log("Call Successful");
-        alert("Your game was successfully added to the watchlist.");
+        // alert("Your game was successfully added to the watchlist.");
+        $("#watchlistAdd").modal("show");
     } else {
         alert("Something went wrong, please try again.");
     }
