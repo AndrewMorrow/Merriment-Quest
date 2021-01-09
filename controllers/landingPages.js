@@ -101,7 +101,7 @@ router.get("/cheapsharkSearch", async (req, res) => {
         let hasVideo = true;
         // console.log(req.query.title);
         const cheapConfig = {
-            url: `/deals?title=${req.query.title}&sortBy=Title&limit=1&onSale=1`,
+            url: `/deals?title=${req.query.title}&sortBy=Title&sortBy=Price&exact=1&limit=1&onSale=1`,
             method: "GET",
             baseURL: "https://www.cheapshark.com/api/1.0",
         };
@@ -198,7 +198,7 @@ router.get("/gameDealFinder", async (req, res) => {
         const gameTitle = game.name.trim();
 
         const cheapConfig = {
-            url: `/deals?title=${gameTitle}&sortBy=Title&limit=1&onSale=1`,
+            url: `/deals?title=${gameTitle}&sortBy=Title&sortBy=Price&exact=1&limit=1&onSale=1`,
             method: "GET",
             baseURL: "https://www.cheapshark.com/api/1.0",
         };
