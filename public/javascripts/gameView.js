@@ -2,34 +2,41 @@ const $addWatchBtn = $(".add-watch-btn");
 const $gameName = $(".game-name");
 const $tryAgainBtn = $(".tryAgain");
 
-const addNewWatch = async (e) => {
-    e.preventDefault();
+$(document).ready(function () {
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
 
-    const gameData = {
-        game_name: $gameName.text(),
+    const addNewWatch = async (e) => {
+        e.preventDefault();
+
+        const gameData = {
+            game_name: $gameName.text(),
+        };
+
+        // console.log(gameData);
+        const response = await fetch("api/watchlist/create", {
+            method: "POST",
+            body: JSON.stringify(gameData),
+            headers: { "Content-Type": "application/json" },
+        });
+        if (response.ok) {
+            // console.log("Call Successful");
+            // alert("Your game was successfully added to the watchlist.");
+            $("#watchlistAdd").modal("show");
+        } else {
+            alert("Something went wrong, please try again.");
+        }
     };
 
-    // console.log(gameData);
-    const response = await fetch("api/watchlist/create", {
-        method: "POST",
-        body: JSON.stringify(gameData),
-        headers: { "Content-Type": "application/json" },
-    });
-    if (response.ok) {
-        // console.log("Call Successful");
-        // alert("Your game was successfully added to the watchlist.");
-        $("#watchlistAdd").modal("show");
-    } else {
-        alert("Something went wrong, please try again.");
-    }
-};
+    const reloadPage = (e) => {
+        e.preventDefault();
 
-const reloadPage = async (e) => {
-    e.preventDefault();
+        location.reload();
+    };
 
-    location.reload().scrollTop(0, 0);
-};
+    $addWatchBtn.on("click", addNewWatch);
 
-$addWatchBtn.on("click", addNewWatch);
-
-$tryAgainBtn.on("click", reloadPage);
+    $tryAgainBtn.on("click", reloadPage);
+});
