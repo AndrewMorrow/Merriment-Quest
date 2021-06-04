@@ -105,7 +105,7 @@ router.get("/cheapsharkSearch", async (req, res) => {
         rawgParams.search = req.query.title;
 
         const rawgConfig = {
-            url: "games?page_size=1&search_precise=1",
+            url: `games?page_size=1&search_precise=1&key=${RAWG_API_KEY}`,
             method: "GET",
             baseURL: "https://api.rawg.io/api",
             params: rawgParams,
@@ -221,7 +221,7 @@ router.get("/gameDealFinder", async (req, res) => {
             rawgParams.tags = req.query.tags;
         }
         const rawgConfig = {
-            url: "games?page_size=30&ordering=-metacritic",
+            url: `games?page_size=30&ordering=-metacritic&key=${RAWG_API_KEY}`,
             method: "GET",
             baseURL: "https://api.rawg.io/api",
             params: rawgParams,
