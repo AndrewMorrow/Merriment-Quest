@@ -3,6 +3,7 @@ const { User, Watchlist } = require(".././models");
 const withAuth = require("../utils/auth");
 const axios = require("axios");
 const _ = require("lodash/core");
+dotenv.config();
 
 //           Home Page
 router.get("/", async (req, res) => {
